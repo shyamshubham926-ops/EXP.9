@@ -1,0 +1,67 @@
+# Student Management System API Tests
+# Use with REST Client extension in VS Code or similar tools
+
+### Health Check
+GET http://localhost:5000/
+
+### Get All Students
+GET http://localhost:5000/api/students
+
+### Create Student
+POST http://localhost:5000/api/students
+Content-Type: application/json
+
+{
+  "name": "Alice Johnson",
+  "email": "alice@example.com",
+  "course": "Engineering",
+  "age": 21
+}
+
+### Create Another Student
+POST http://localhost:5000/api/students
+Content-Type: application/json
+
+{
+  "name": "Bob Wilson",
+  "email": "bob@example.com",
+  "course": "Business Administration",
+  "age": 24
+}
+
+### Get Single Student (Replace :id with actual student ID)
+GET http://localhost:5000/api/students/REPLACE_WITH_ACTUAL_ID
+
+### Update Student (Replace :id with actual student ID)
+PUT http://localhost:5000/api/students/REPLACE_WITH_ACTUAL_ID
+Content-Type: application/json
+
+{
+  "name": "Alice Smith",
+  "age": 22
+}
+
+### Delete Student (Replace :id with actual student ID)
+DELETE http://localhost:5000/api/students/REPLACE_WITH_ACTUAL_ID
+
+### Test Validation Errors
+POST http://localhost:5000/api/students
+Content-Type: application/json
+
+{
+  "name": "A",
+  "email": "invalid-email",
+  "course": "Invalid Course",
+  "age": 15
+}
+
+### Test Duplicate Email
+POST http://localhost:5000/api/students
+Content-Type: application/json
+
+{
+  "name": "Another Alice",
+  "email": "alice@example.com",
+  "course": "Medicine",
+  "age": 25
+}
